@@ -1,0 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Todo.Infrastructure.Peristance.Entities
+{
+    internal class BaseEntity
+    {
+        public Guid Id { get; set; } = new Guid();
+    }
+}
