@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Todo.Infrastructure.Peristance.Entities
+namespace Todo.Infrastructure
 {
-    internal class ActivityLog
+    public class InfraAssemblyMarker
     {
     }
 }

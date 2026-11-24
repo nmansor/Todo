@@ -1,8 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Todo.Infrastructure.Peristance.Entities;
+
+using Todo.Infrastructure.Persistence.Entities;
 
 namespace Todo.api
 {
@@ -14,7 +13,7 @@ namespace Todo.api
             var connectionString = config.GetConnectionString("DefaultConnection");
             // register AppDbContext as a service
             service.AddDbContext<AppDbContext>(options =>
-               options.UseSqlite(connectionString));
+               options.UseSqlServer(connectionString));
 
             return service;
         }

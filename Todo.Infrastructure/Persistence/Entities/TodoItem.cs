@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace Todo.Infrastructure.Peristance.Entities
+namespace Todo.Infrastructure.Persistence.Entities
 {
-    internal class ToDoItem
+    public class TodoItem
     {
         public Guid Id { get; set; }
-        public ToDoList ToDoList { get; set; }
+        public TodoList ToDoList { get; set; }
 
         public string Title { get; set; }
         public string Description { get; set; }
@@ -18,7 +18,7 @@ namespace Todo.Infrastructure.Peristance.Entities
         public DateTime? RemiderDate { get; set; }
         public DateTime? CompleteAt { get; set; }
         public bool IsDeleted { get; set; }
-        public ICollection<ToDoItemTag> ToDoItemTag { get; set; }  //navigation property
+        public ICollection<TodoItemTag> TodoItemTag { get; set; }  //navigation property
         public ICollection<Comment> Comments { get; set; }
     }
 }

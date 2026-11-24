@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Todo.Infrastructure.Peristance.Entities
+namespace Todo.Infrastructure.Persistence.Entities
 {
-    internal class BaseEntity
+    public class BaseEntity
     {
         public Guid Id { get; set; } = new Guid();
     }
