@@ -24,6 +24,7 @@ namespace Todo.Infrastructure.RepositoryInterface
         public async Task AddAsync(TDomain domain)
         {
             var entity = _mapper.Map<TEntity>(domain);
+           // entity.CreatedBy = "system";
 
              await _context.Set<TEntity>().AddAsync(entity);
         }
@@ -45,5 +46,14 @@ namespace Todo.Infrastructure.RepositoryInterface
             return entity == null ? null : _mapper.Map<TDomain>(entity);
 
         }
+
+        public async Task UpdateAsync(TDomain domain)
+        {
+            var entity = _mapper.Map<TEntity>(domain); // domain --> entity
+
+            _context.Set<TEntity>().Update(entity);
+        }
+
+        
     }
 }

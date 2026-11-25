@@ -9,13 +9,13 @@ namespace Todo.Infrastructure.Mapper
 {
     public class UserMapping : Profile
     {
-        protected UserMapping()
+        public UserMapping()
         {
             CreateMap<User, UserDomain>().ReverseMap();
         }
 
-        protected internal UserMapping(string profileName) : base(profileName)
-        {
-        }
+        //protected internal UserMapping(string profileName) : base(profileName)
+        //{
+        //}
     }
 }

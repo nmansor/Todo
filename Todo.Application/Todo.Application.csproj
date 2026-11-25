@@ -7,7 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="services\" />
+	<PackageReference Include="AutoMapper" Version="15.1.4" />
+	<PackageReference Include="BCrypt.Net-Next" Version="4.0.0" />
+	<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.14" />
+	<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.15" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Todo.Domain\Todo.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -12,12 +12,12 @@ namespace Todo.Infrastructure.Persistence.Entities
         {
 
         }
-        DbSet<User> Users { get; set; }
-        DbSet<Tag> Tags { get; set; }
-        DbSet<TodoItemTag> ToDoItemTags { get; set; }
-        DbSet<TodoItem> ToDoItems { get; set; }
-        DbSet<Comment> Comments { get; set; }
-        DbSet<ActivityLog> ActivityLogs { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<TodoItemTag> ToDoItemTags { get; set; }
+        public DbSet<TodoItem> ToDoItems { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<ActivityLog> ActivityLogs { get; set; }
 
  
 
@@ -47,6 +47,28 @@ namespace Todo.Infrastructure.Persistence.Entities
                 .WithMany()
                 .HasForeignKey("UserId") // adjust property name if different
                 .OnDelete(DeleteBehavior.NoAction);
+        }
+
+       private  void UpdateSharedColumns()
+        {
+
+            var entries = ChangeTracker.Entries<BaseAuditEntity>();
+            foreach (var entry in entries)
+            {
+                if (entry.State == EntityState.Added ) {
+                    entry.Entity.CreatedAt = DateTime.UtcNow;
+                    entry.Entity.CreatedBy = GetCurrentUserId();
+                }
+                if (entry.State == EntityState.Modified) {
+                    entry.Entity.UpdatedAt = DateTime.UtcNow;
+                    entry.Entity.UpdatedBy = GetCurrentUserId();
+                }
+            }
+        }
+
+        private string GetCurrentUserId()
+        {
+            return "System";
         }
     }
 }

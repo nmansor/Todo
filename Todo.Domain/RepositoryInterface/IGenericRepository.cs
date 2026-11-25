@@ -6,10 +6,10 @@ namespace Todo.Domain.RepositoryInterface
 {
     public interface IGenericRepositroy<TDomain> where TDomain: class
     {
-        Task<TDomain> GetByIdAsync(object id);
-        Task<IEnumerable<TDomain>> GetAllAsync();
-        Task AddAsync(TDomain domain);
-        Task<int> CommitAsync();
+      public  Task<TDomain> GetByIdAsync(object id);
+      public  Task<IEnumerable<TDomain>> GetAllAsync();
+      public  Task AddAsync(TDomain domain);
+      public  Task<int> CommitAsync();
 
 
     }
